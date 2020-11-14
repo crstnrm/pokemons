@@ -7,8 +7,8 @@ I use docker for run this project, but if don't want to use docker, i could reco
 If you choose run this project with docker, you have to do the steps below:
 
 - Run `docker-compose run --rm --service-ports worker sh` in your terminal. Install gcc package often take a couple of minutes.
-- Now, you are into woker container. Run `python manage.py migrate`.
-- Run `python manage.py loaddata stats.json`.
+- Now, you are into woker container. Run `python manage.py migrate`
+- Run `python manage.py loaddata stats.json`
 
 ## How to use it.
 All below commands have to be run into docker container:
