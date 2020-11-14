@@ -17,7 +17,8 @@ class PokemonLogic(GenericLogic):
     @transaction.atomic
     def create(self, **kwargs):
         """Create a new Pokemon"""
-        if 'pokeapi_id' in kwargs and self.dao.find(pokeapi_id=kwargs['pokeapi_id']).exists():
+        pokeapi_id = kwargs.get('pokeapi_id', None)
+        if pokeapi_id is not None and self.dao.find(pokeapi_id=pokeapi_id).exists():
             raise StandardException('The pokemon is already created.')
 
         # create pokemon
