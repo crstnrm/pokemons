@@ -1,0 +1,44 @@
+[
+    {
+        "model": "pokemon.stat",
+        "pk": 1,
+        "fields": {
+            "name": "hp"
+        }
+    },
+    {
+        "model": "pokemon.stat",
+        "pk": 2,
+        "fields": {
+            "name": "attack"
+        }
+    },
+    {
+        "model": "pokemon.stat",
+        "pk": 3,
+        "fields": {
+            "name": "defense"
+        }
+    },
+    {
+        "model": "pokemon.stat",
+        "pk": 4,
+        "fields": {
+            "name": "special-attack"
+        }
+    },
+    {
+        "model": "pokemon.stat",
+        "pk": 5,
+        "fields": {
+            "name": "special-defense"
+        }
+    },
+    {
+        "model": "pokemon.stat",
+        "pk": 6,
+        "fields": {
+            "name": "speed"
+        }
+    }
+]

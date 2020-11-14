@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    restart: on-failure
+    image: pokemons-postgres
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5494:5432"
+    environment:
+      - POSTGRES_DB=pokemons
+      - POSTGRES_USER=pokemons
+      - POSTGRES_PASSWORD=pokemons
+  worker:
+    image: pokemons-worker
+    build: .
+    volumes:
+      - .:/pokemons
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

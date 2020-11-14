@@ -1,0 +1,25 @@
+# Project stuff:
+media
+media/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor configuration
+.vscode
+.idea
+
+# Git stuff:
+.git
+.gitignore
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
