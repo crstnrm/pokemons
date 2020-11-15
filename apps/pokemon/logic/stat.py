@@ -6,6 +6,8 @@ from pokemon.dao.stat import StatDAO
 class StatLogic(GenericLogic):
 
     def __init__(self):
+        super().__init__()
+
         self.dao = StatDAO()
 
     def find_stat_by_name(self, stat_name, stats):
@@ -20,12 +22,12 @@ class StatLogic(GenericLogic):
         -------
         Stat instance
         """
-        stat = None
-        for s in stats:
-            if s.name == stat_name:
-                stat = s
+        instance = None
+        for stat in stats:
+            if stat.name == stat_name:
+                instance = stat
                 break
         else:
             # don't find anything
             raise ValueError('It seems that pokeapi have changes in their response')
-        return stat
+        return instance

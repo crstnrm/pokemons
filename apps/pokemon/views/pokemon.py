@@ -2,13 +2,28 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from pokemon.logic.evolution import EvolutionLogic
 from pokemon.logic.pokemon import PokemonLogic
+from pokemon.serializers import EvolutionViewSerializer
+from pokemon.models import Pokemon
 
 
 class FindPokemonByNameView(APIView):
     def get(self, request, name, *args, **kwargs):
-        logic = PokemonLogic()
-        pokemon = logic.find_pokemon_by_name(name)
-        if pokemon:
-            return Response(logic.serialize(pokemon))
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        # find pokemon
+        pokemon_logic = PokemonLogic()
+        try:
+            pokemon = pokemon_logic.find_pokemon_by_name(name)
+            if pokemon is None:
+                raise Pokemon.DoesNotExist
+        except Pokemon.DoesNotExist:
+            import pdb; pdb.set_trace()
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        else:
+            # find all evolutions
+            evolution_logic = EvolutionLogic()
+            evolutions = evolution_logic.find_evolutions_by_pokemon(pokemon)
+            return Response({
+                'pokemon': pokemon_logic.serialize(pokemon),
+                'evolutions': EvolutionViewSerializer(evolutions, many=True).data
+            })

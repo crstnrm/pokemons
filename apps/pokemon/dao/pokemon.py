@@ -7,6 +7,8 @@ from pokemon.models import Pokemon, PokemonStat
 class PokemonDAO(GenericDAO):
 
     def __init__(self):
+        super().__init__()
+
         self.model = Pokemon
 
     def find_pokemon_by_name(self, name):

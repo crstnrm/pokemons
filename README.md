@@ -17,5 +17,10 @@ For example, create a pokemon: `python manage.py evolution-chain 6`.
 
 If you can see the new pokemon created, you can go to: http://localhost:8000/pokemon/search-pokemon/charizard
 
+
+### Run tests
+Run tests with: `python manage.py test pokemon`
+
+
 ### Warning
 If you run this project on Windows, you have to check the correct port.

@@ -12,7 +12,7 @@ def get_generic_serializer(entity):
     -------
     A new GenericSerializer class
     """
-    class GenericSerializer(serializers.Serializer):
+    class GenericSerializer(serializers.ModelSerializer):
         class Meta:
             model = entity
             fields = '__all__'
