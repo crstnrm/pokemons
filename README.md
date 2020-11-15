@@ -15,7 +15,7 @@ All below commands have to be run into docker container:
 
 For example, create a pokemon: `python manage.py evolution-chain 6`.
 
-If you can see the new pokemon created, you can go to: http://localhost:8000/pokemon/search-pokemon/charizard
+If you can see the new pokemon created, you can go to: http://localhost:8000/pokemon/search-pokemon/pidgeotto
 
 
 ### Run tests
