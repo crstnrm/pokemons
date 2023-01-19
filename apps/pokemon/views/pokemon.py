@@ -17,7 +17,6 @@ class FindPokemonByNameView(APIView):
             if pokemon is None:
                 raise Pokemon.DoesNotExist
         except Pokemon.DoesNotExist:
-            import pdb; pdb.set_trace()
             return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
             # find all evolutions
